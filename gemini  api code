@@ -1,0 +1,118 @@
+const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+//const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
+
+// NOUVELLE URL (correcte)
+const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
+
+export async function reecrireEmailAvecGemini(emailOriginal, ton) {
+  const prompt = creerPrompt(emailOriginal, ton);
+  
+  try {
+    const response = await fetch(`${API_URL}?key=${API_KEY}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        contents: [{
+          parts: [{
+            text: prompt
+          }]
+        }],
+        generationConfig: {
+          temperature: 0.7,
+          topK: 1,
+          topP: 1,
+          maxOutputTokens: 2048,
+        }
+      })
+    });
+
+    if (!response.ok) {
+      throw new Error(`Erreur API: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data.candidates[0].content.parts[0].text;
+    
+  } catch (error) {
+    console.error('Erreur lors de l\'appel à Gemini:', error);
+    throw error;
+  }
+}
+
+function creerPrompt(email, ton) {
+  const prompts = {
+    raccourcir: `Réécris cet email de manière plus courte et concise, tout en gardant le message principal et un ton professionnel :
+
+${email}`,
+    
+    clarifier: `Réécris cet email pour le rendre plus clair, précis et bien structuré. Améliore la grammaire et la syntaxe :
+
+${email}`,
+
+    prospection: `Tu es un expert en communication, copywriting B2B et prospection commerciale, avec plus de 10 ans d’expérience en vente et négociation. Tu maîtrises les techniques de copywriting (AIDA, PAS, storytelling, objection handling) et ton objectif est de transformer un email simple et générique en un mail de prospection structuré, clair et convaincant, capable de générer des réponses positives et de transformer le lecteur en prospect, puis en client.
+
+Ta mission :
+
+1. Reformuler l’email de base en un mail de prospection impactant.
+
+
+2. Utiliser un ton professionnel, personnalisé et orienté solution (ni trop agressif ni trop froid).
+
+
+3. Susciter la curiosité et mettre en avant la valeur ajoutée du service/produit.
+
+
+4. Inclure un appel à l’action clair (ex : prendre rendez-vous, répondre au mail, demander le portfolio…).
+
+
+5. Faire en sorte que le mail soit court, lisible et engageant. :
+
+${email}`, 
+
+
+
+    
+    pro: `Tu es un expert en communication professionnelle et en rédaction d’emails pour freelances et PME et entreprises professionnelle.
+Je vais te donner un email rédigé de manière trop informelle par quelq'un.
+Ta mission :
+
+1. Réécrire cet email avec un ton professionnel, clair et courtois.
+
+
+2. Conserver l’intention et le message de l’auteur original.
+
+
+3. Supprimer toute formulation trop familière ou trop vague.
+
+
+4. Mettre en avant la demande que la personne émet, avec crédibilité et sérieux.
+
+
+5. Adapter le texte pour qu’il donne envie au destinataire de répondre positivement.
+
+
+6. Respecter une structure simple et efficace :
+
+Introduction polie
+
+garde le ton du  mail original ( tu , vous, nous) 
+
+que ta proposition sois adapté a l'environement pro des freelance
+
+Observation ou contexte
+
+Proposition de valeur
+
+Invitation à la suite (call-to-action léger)
+
+Signature professionnelle
+
+A la fin propose une signature de mon outil en fin de message ( après cordialement..... ) ,  cette phrase exate en italique et en taille peu petite  : Optimiser par PristineMail.io :
+
+${email}`
+  };
+  
+  return prompts[ton] || prompts.pro;
+}
