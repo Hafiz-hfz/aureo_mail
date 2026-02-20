@@ -203,13 +203,13 @@ export default function Example() {
             
             {/* Main Title */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-             Freelances : Gagnez des contrats avec des 
+             Freelance : Gagne des contrats avec des 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> emails pros en 1 clic</span>
             </h1>
             
             {/* Subtitle */}
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8 max-w-3xl mx-auto">
-             Collez votre email, choisissez le ton souhaité et obtenez une version professionnelle , adapter pour freelance , instantanément. 
+             Colle ton email, choisi le ton souhaité et obtient une version professionnelle , adapter pour freelance ou PME , instantanément. 
               <strong className="text-gray-800"> Pas d'inscription, pas de limites.</strong>
             </p>
             
