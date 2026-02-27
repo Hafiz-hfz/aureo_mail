@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { reecrireEmailAvecGemini } from './services/geminiApi';
+import illu from './Promail-Rewriter-illustration-2.jpg';
 
 import React from 'react'
 import { use } from 'react'
@@ -10,9 +11,16 @@ import { use } from 'react'
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
+// Animation 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
+
+
+
 const navigation = [
   { name: 'Acceuil', href: '#', current: true },
-  { name: 'Fonctionalités', href: '#', current: false },
+  { name: 'Fonctionnement', href: '#fonc', current: false },
   
   
 ]
@@ -20,21 +28,6 @@ const navigation = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 export default function Example() {
 //  constante pour zone de texte email
@@ -81,11 +74,19 @@ export default function Example() {
     alert('Texte copié dans le presse-papiers !');
   };
 
+  // Animation 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // 1 seconde
+      once: true // Animation une seule fois
+    });
+  }, []);
+
   return (
     <div>
       {/* Menu */}
-      <Disclosure as="nav" className="relative p-3 bg-gray-800 z-2">
-        <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <Disclosure as="nav" className="relative  p-3 bg-gray-800 z-2">
+        <div className="mx-auto  max-w-7xl px-2 sm:px-6 lg:px-8">
           <div className="relative flex h-16 items-center justify-between">
             <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
               {/* Mobile menu button*/}
@@ -151,10 +152,10 @@ export default function Example() {
                 </div>
               </div>
 
-              <button class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
-                          Connexion
+              <button class="bg-blue-600 cursor-pointer hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors"   onClick={() => document.getElementById('rewrite-section').scrollIntoView({ behavior: 'smooth' })}>
+                          Commencer
               </button>
-
+                        
               {/* Profile dropdown */}
               <Menu as="div" className="relative ml-3">
                 
@@ -192,29 +193,30 @@ export default function Example() {
         <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-gradient-to-br from-purple-200 to-pink-300 opacity-20 blur-3xl"></div>
       </div>
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="min-h-screen flex items-center justify-center">
-          <div className="text-center max-w-4xl">
+      <div className="relative  max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className=" flex flex-col md:flex-row  gap-4 min-h-screen flex items-center ">
+          {/* Hero section 1er 50% */}
+          <div data-aos="fade-up" className="w-full md:w-1/2  max-w-4xl mt-30">
             {/* Badge */}
             <div className="inline-flex  items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-6">
               <span className="mr-2">✨</span>
-              100% Gratuit • Aucune inscription requise. Total Gratuit
+              100% Gratuit • Aucune inscription requise
             </div>
             
             {/* Main Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+            <h1 style={{ fontFamily: 'Cascadia Mono, sans-serif' }} className="  text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6" >
              Freelance : redige des emails clairs 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> et pro en 5 secondes</span>
             </h1>
             
             {/* Subtitle */}
-            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8 max-w-3xl mx-auto">
+            <p style={{ fontFamily: 'Cascadia Mono, sans-serif' }}  className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8 max-w-3xl mx-auto">
              Colle ton email brouillon, choisi le ton souhaité et obtient une version professionnelle, adaptée aux freelances ou PME, instantanément. 
               <strong className="text-gray-800"> Aucun compte. Aucune limites.</strong>
             </p>
             
             {/* Features list */}
-            <div className="flex flex-wrap justify-center gap-6 mb-10 text-sm text-gray-600">
+            <div className="flex flex-wrap  gap-6 mb-10 text-sm text-gray-600">
               <div className="flex items-center">
                 <svg className="w-5 h-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -243,28 +245,32 @@ export default function Example() {
             
             {/* CTA Buttons */}
             
-            
+            <btn> Essayer gratuitement </btn>
             
           </div>
+           {/* Hero section 2e 50% */}
+           <div data-aos="fade-up"  className='w-full md:w-1/2 justify-center   max-w-4xl mt-15'>
+            <img alt="Promail-illustration" src={illu}/>
+           </div>
         </div>
         
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        {/* <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <svg className="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
           <svg className="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
-        </div>
+        </div> */}
         {/* scrool 2 */}
             
       </div>
     </div>
     {/* Champ de texte */}
 
-          <div  className="-mt-29 z-0" style={{ padding: '40px 20px', maxWidth: '1200px', margin: '0 auto'}}>
-            <div className='bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50  '>
+          <div  className=" flex flex-col md:flex-row gap-4  -mt-29 z-0" style={{ padding: '40px 20px', maxWidth: '1200px', margin: '0 auto'}}>
+            <div data-aos="fade-up" id ="rewrite-section" className='w-full md:w-1/2 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50  '>
             <label style={{
               display: 'block',
               marginBottom: '10px',
@@ -356,7 +362,7 @@ Exemple : hey, pour le nouveau projet dont on a parlé, mon tarif c'est 500€. 
           </div>
 
            {/* Zone de résultat */}
-          <div>
+          <div data-aos="fade-up" className='w-full md:w-1/2' >
             <label style={{
               display: 'block',
               marginBottom: '10px',
@@ -430,12 +436,173 @@ Exemple : hey, pour le nouveau projet dont on a parlé, mon tarif c'est 500€. 
             </div>
           </div>
         </div>
-      
+        {/* Fonctionnement */} 
+        <div  id = "fonc" className='text-center   '>
+              {/* Badge */}
+            <div className="inline-flex  items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-6">
+              <span className="mr-2">✨</span>
+                Fonctionnement
+            </div>
+              <h2 style={{ fontFamily: 'Cascadia Mono, sans-serif' }} className='text-2xl sm:text-xm lg:text-3xl font-bold text-gray-900 leading-tight mb-3'> Génerez des e-mail pro 
+                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> en 3 étapes simples </span>  </h2>
+              <div style={{ fontFamily: 'Bpmf Iansui, cursive' }} className=' text-center ' > Avec notre outil, vous n'aurez plus besoin de trop réfléchir au mail parfait pour répondre à vos prospects.
+                 <br/> Gagnez du temps et améliorez votre communication professionnelle en un clic. <br />
+               ProMail Rewriter transforme instantanément vos brouillons informels en messages clairs, polis et percutants. <br /> 
+               Concentrez-vous sur votre business, laissez l'IA s'occuper de vos emails. </div>
+             
+              {/* Differente box pour les fonctionnement */}
+              
+            <div  className= "  flex flex-col md:flex-row  gap-6 p-8" >
+                <div data-aos="fade-up" className=" w-full text-center bg-gray-100 p-4 border border-gray-300 rounded-xl w-1/3 mt-15">
+                  <span className='mr-2 text-2xl mb-4'> 📋 </span> <br/>
+                  <b className='font-bold  text-xl sm:text-xl lg:text-xl font-bold text-gray-900 leading-tight  mb-3' > Collez votre email </b> <br/>
+                  <div style={{ fontFamily: 'Bpmf Iansui, cursive' }}  className='max-w-md mt-2 text-left'>
+                       Collez votre email informel, brouillon ou mal rédigé  la zone de texte . Aucune compétence technique requise.
+                  </div>
+                </div>
 
+                <div data-aos="fade-up" className=" text-center w-full  bg-gray-100 p-4 border border-gray-300 rounded-xl w-1/3 mt-15">
+                  <span className='mr-2 text-2xl mb-4'>🎯</span>
+                  <h2 className='text-xl sm:text-xl lg:text-xl font-bold text-gray-900 leading-tight mb-3'>Choisissez le ton</h2>
+                  <div style={{ fontFamily: 'Bpmf Iansui, cursive' }} className='max-w-md mx-auto text-left'>
+                   Sélection du style souhaité : Professionnel (formel), Raccourcir (concis), ou Clarifier (structuré). 
+                  </div>
+                </div>
+
+                <div data-aos="fade-up" className=" text-center w-full w-1/3 mt-15 bg-gray-100 p-4 border border-gray-300 rounded-xl">
+                  <span className='mr-2 text-2xl mb-4'> 🚀</span>
+                  <h2 className='text-xl sm:text-xl lg:text-xl font-bold text-gray-900 leading-tight mb-3'> Obtenez le résultat </h2>
+                  <div style={{ fontFamily: 'Bpmf Iansui, cursive' }} className='max-w-md mx-auto text-left'>           
+                      ProMail Rewriter  réécrit  l'email en quelques seconde.Tout ce qu'il vous restera a faire ce sera de copiez et envoyez..
+                  </div>
+                </div>
+            </div>
+
+
+        </div>
+            {/* Differente box pour les avantages */}
+          <div className='text-center mt-20'>
+
+                 <div className="  inline-flex  items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-6">
+              <span className="mr-2">✨</span>
+                Avantages
+            </div>
+              <h2 style={{ fontFamily: 'Cascadia Mono, sans-serif' }} className='text-xl sm:text-xl lg:text-4xl font-bold text-gray-900 leading-tight mb-3'> Pourquoi choisir 
+                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">  ProMail Rewriter </span> </h2>
+              <p style={{ fontFamily: 'Bpmf Iansui, cursive' }}  className='text-center' >ProMail Rewriter est votre assistant intelligent d'aide à la  rédaction d'emails. <br /> Conçu pour
+                 transformer vos messages informels en communications professionnelles impeccables.
+                  <br /> Notre outil vous accompagne dans chaque échange avec vos clients et prospects.
+                  </p>
+
+              <div className= " flex flex-col md:flex-row  gap-6 p-8" >
+                <div data-aos="fade-up" className="w-full bg-gray-100 p-6 border border-gray-300 rounded-xl w-1/3 mt-15">
+                  <span className='mr-2 text-2xl mb-4'> ⏱️ </span>
+                  <h3 className='text-xl sm:text-xl lg:text-xl font-bold text-gray-900 leading-tight mb-3'> Gain de temps </h3>
+                  <div style={{ fontFamily: 'Bpmf Iansui, cursive' }}  className='text-xm sm:text-xm lg:text-xm' >
+                        Rédigez des emails professionnels en quelques secondes au lieu de perdre des minutes à reformuler.
+                  </div>
+                </div>
+
+                <div data-aos="fade-up" className=" w-full bg-gray-100 p-6 border border-gray-300 rounded-xl w-1/3 mt-15">
+                  <span className='mr-2 text-2xl mb-4'>💼</span>
+                  <h3 className='text-xl sm:text-xl lg:text-xl font-bold text-gray-900 leading-tight mb-3'>Communication professionnelle</h3>
+                  <div style={{ fontFamily: 'Bpmf Iansui, cursive' }}  className='text-xm sm:text-xm lg:text-xm' >
+                    Impressionnez vos clients et prospects avec des messages clairs, polis et bien structurés.
+                  </div>
+                </div>
+
+                <div data-aos="fade-up" className=" w-full w-1/3 mt-15 bg-gray-100 p-6 border border-gray-300 rounded-xl">
+                  <span className='mr-2 text-2xl mb-4'>✨</span>
+                  <h2 className='text-xl sm:text-xl lg:text-xl font-bold text-gray-900 leading-tight mb-3'> Simplicité d'utilisation </h2>
+                  <div style={{ fontFamily: 'Bpmf Iansui, cursive' }}  className='text-xm sm:text-xm lg:text-xm'>           
+                      Aucune compétence technique requise. Collez, choisissez le ton, et c'est prêt.
+                  </div>
+                </div>
+               
+
+                </div>  
+
+                <div style={{ marginTop : -60 }}  className='flex flex-col md:flex-row   gap-6 p-8'>
+                       <div data-aos="fade-up" className=" w-full w-1/3 mt-15 bg-gray-100 p-6 border border-gray-300 rounded-xl">
+                          <span className='mr-2 text-2xl mb-4'>  🤖 </span>
+                          <h3 className='text-xl sm:text-xl lg:text-xl font-bold text-gray-900 leading-tight mb-3'> IA performante </h3>
+                          <div style={{ fontFamily: 'Bpmf Iansui, cursive' }}  className='text-xm sm:text-xm lg:text-xm'>           
+                              Propulsé par Gemini AI pour des réécritures naturelles et adaptées au contexte professionnel.
+                          </div>
+                        </div>
+
+                  <div data-aos="fade-up" className=" w-full w-1/3 mt-15 bg-gray-100 p-6 border border-gray-300 rounded-xl">
+                    <span className='mr-2 text-2xl mb-4'>🆓</span>
+                    <h3 className='text-xl sm:text-xl lg:text-xl font-bold text-gray-900 leading-tight mb-3'> Gratuit et accessible </h3>
+                    <div style={{ fontFamily: 'Bpmf Iansui, cursive' }}  className='text-xm sm:text-xm lg:text-xm'>           
+                        Utilisez l'outil sans compte ni abonnement. Disponible 24/7 depuis n'importe quel appareil.
+                    </div>
+                  </div>
+                  <div data-aos="fade-up" className=" w-full w-1/3 mt-15 bg-gray-100 p-6 border border-gray-300 rounded-xl">
+                    <span className='mr-2 text-2xl mb-4'>♾️</span>
+                    <h3 className='text-xl sm:text-xl lg:text-xl font-bold text-gray-900 leading-tight mb-3'> Aucune limite d'utilisation </h3>
+                    <div style={{ fontFamily: 'Bpmf Iansui, cursive' }}  className='text-xm sm:text-xm lg:text-xm'>           
+                        Réécrivez autant d'emails que vous le souhaitez sans restriction ni quota journalier.
+                    </div>
+                  </div>
+                </div>
 
 
           </div>
+
+
+
+
+
+
+
+
+
+
+                  {/* Footer */}
+                <footer className='mt-20 flex  bg-gray-50  flex-col md:flex-row  gap-6 p-8' >
+                          
+                    <div className=' w-full text-center '>
+                        <h4 style={{ fontFamily: 'Cascadia Mono, sans-serif' }} className='text-2xl text-left sm:text-xm lg:text-3xl font-bold text-gray-900 leading-tight mb-3'> 
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> Promail Rewriter </span>  </h4>
+                        <p style={{ fontFamily: 'Bpmf Iansui, cursive', fontSize : 14 }} className='text-left'> <b> Votre assistant d'aide à la rédaction d'emails professionnels </b>
+                          Gagnez du temps et impressionnez vos contacts <br />
+                          avec des messages clairs, polis et parfaitement rédigés en quelques secondes..</p>
+                    </div>
+
+                    {/* Produuit */}
+                    <div  className=' w-full text-center  w-1/3  '>
+                        
+                        <h4 className="mb-8 mt-2 font-bold ">PRODUIT</h4>
+                        <div style={{ fontFamily: 'Bpmf Iansui, cursive', fontSize : 14 }} className=" text-center">
+                          <ul>
+                          <li className='mb-3' > <a href="#fonc">Fonctionnement</a> </li>
+                          <li> <a href="http://">Avantages</a> </li>
+                            <li></li>
+                          </ul>
+                        </div>
+                    </div>
+
+                    {/* Contact */}
+                    <div  className=' w-full text-center  w-1/3  '>
+                        
+                        <h4 className="mb-8 mt-2 font-bold ">CONTACT</h4>
+                        <div style={{ fontFamily: 'Bpmf Iansui, cursive', fontSize : 14 }} className=" text-center">
+                          <ul>
+                          <li className='mb-3' > <a href="www.linkedin.com/in/hafiz-yessoufou-82b3223b1">Linked</a> </li>
+                          <li> <a href="http://">WhatsApp</a> </li>
+                            <li></li>
+                          </ul>
+                        </div>
+                    </div>
+
+                </footer>
        
+      </div>
+
+ 
+      
+      
      
 )
 
