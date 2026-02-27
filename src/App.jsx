@@ -204,7 +204,7 @@ export default function Example() {
             </div>
             
             {/* Main Title */}
-            <h1 style={{ fontFamily: 'Cascadia Mono, sans-serif' }} className="  text-5xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6" >
+            <h1 style={{ fontFamily: 'Cascadia Mono, sans-serif' }} className="  text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6" >
              Freelance : redige des emails clairs 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> et pro en 5 secondes</span>
             </h1>
