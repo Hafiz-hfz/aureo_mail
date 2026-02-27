@@ -245,8 +245,8 @@ export default function Example() {
             
             {/* CTA Buttons */}
             
-            <btn  style = {{borderRadius : 20}}  onClick={() => document.getElementById('rewrite-section').scrollIntoView({ behavior: 'smooth' })} className = 'bg-blue-600 cursor-pointer hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors' > Essayer gratuitement &rarr; </btn> 
-            <a href='#fonc' className='ml-5' > Comment ça marche </a>
+            <btn  style = {{borderRadius : 20, marginLeft :  -12}}  onClick={() => document.getElementById('rewrite-section').scrollIntoView({ behavior: 'smooth' })} className = 'bg-blue-600 cursor-pointer hover:bg-blue-700 text-white font-semibold py-2 px-6   rounded-lg transition-colors' > Essayer gratuitement &rarr; </btn> 
+            <a href='#fonc' className='ml-3' > Comment ça marche </a>
             {/* <a href="#fonc" className='ml-5' >Comment ça marche</a> */}
           </div>
            {/* Hero section 2e 50% */}
