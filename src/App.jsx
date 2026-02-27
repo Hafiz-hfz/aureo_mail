@@ -203,14 +203,14 @@ export default function Example() {
             
             {/* Main Title */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-             Freelance : Gagne des contrats avec des 
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> emails pros en 1 clic</span>
+             Freelance : redige des emails clairs 
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> et pro en 5 secondes</span>
             </h1>
             
             {/* Subtitle */}
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8 max-w-3xl mx-auto">
-             Colle ton email, choisi le ton souhaité et obtient une version professionnelle , adapter pour freelance ou PME , instantanément. 
-              <strong className="text-gray-800"> Pas d'inscription, pas de limites.</strong>
+             Colle ton email brouillon, choisi le ton souhaité et obtient une version professionnelle, adaptée aux freelances ou PME, instantanément. 
+              <strong className="text-gray-800"> Aucun compte. Aucune limites.</strong>
             </p>
             
             {/* Features list */}
@@ -225,19 +225,19 @@ export default function Example() {
                 <svg className="w-5 h-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                Ton professionnel adapté freelance
+                Ton professionnel adapté au contexte freelance
               </div>
               <div className="flex items-center">
                 <svg className="w-5 h-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                Structure optimisée
+                Structure claire et lisible
               </div>
               <div className="flex items-center">
                 <svg className="w-5 h-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
-                Résultat en 5 secondes
+                Résultat  en 5 secondes
               </div>
             </div>
             
@@ -303,35 +303,34 @@ Exemple : hey, pour le nouveau projet dont on a parlé, mon tarif c'est 500€. 
                 Choisissez le style :
               </p>
 
-               <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
-                {[
-                  { id: 'raccourcir', label: '📝 Raccourcir', desc: 'Version courte' },
-                  { id: 'clarifier', label: '🔍 Clarifier', desc: 'Plus précis' },
-                  { id: 'pro', label: '👔 Professionnel', desc: 'Ton formel' },
-                  { id: 'prospection', label: '👔 Prospection', desc: 'prospecter' } //
-                ].map(option => (
-                  <button
-                    key={option.id}
-                    onClick={() => selectionnerTon(option.id)}
-                    style={{
-                      padding: '12px 16px',
-                      border: tonSelectionne === option.id ? '2px solid #2563eb' : '2px solid #e2e8f0',
-                      backgroundColor: tonSelectionne === option.id ? '#eff6ff' : 'white',
-                      borderRadius: '6px',
-                      cursor: 'pointer',
-                      textAlign: 'center',
-                      fontSize: '0.9rem',
-                      fontWeight: '500',
-                      color: tonSelectionne === option.id ? '#2563eb' : '#64748b',
-                      transition: 'all 0.2s'
-                    }}
-                  >
-                    <div>{option.label}</div>
-                    <div style={{ fontSize: '0.75rem', marginTop: '4px' }}>
-                      {option.desc}
-                    </div>
-                  </button>
-                ))}
+               {/* NOUVEAU CODE - Liste déroulante */}
+              <div style={{ marginBottom: '20px' }}>
+                <select
+                  value={tonSelectionne}
+                  onChange={(e) => selectionnerTon(e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '12px 16px',
+                    border: '2px solid #e2e8f0',
+                    borderRadius: '6px',
+                    fontSize: '1rem',
+                    fontWeight: '500',
+                    color: '#374151',
+                    backgroundColor: 'white',
+                    cursor: 'pointer',
+                    appearance: 'none',
+                    backgroundImage: 'url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3e%3cpolyline points=\'6 9 12 15 18 9\'%3e%3c/polyline%3e%3c/svg%3e")',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'right 12px center',
+                    backgroundSize: '20px',
+                    paddingRight: '40px'
+                  }}
+                >
+                  <option value="pro">👔 Professionnel - Ton formel et soutenu</option>
+                  <option value="raccourcir">📝 Raccourcir - Version courte et concise</option>
+                  <option value="clarifier">🔍 Clarifier - Plus précis et structuré</option>
+                  <option value="prospection">📝 Prospecter - Prospection intelligente</option>
+                </select>
               </div>
 
                {/* Bouton Réécrire */}

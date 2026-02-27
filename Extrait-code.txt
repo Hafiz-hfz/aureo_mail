@@ -1,0 +1,115 @@
+
+
+
+####"#####    Code des btn pro,clarifier... ~########################
+
+ <div style={{ marginTop: '20px' }}>
+              <p style={{ 
+                marginBottom: '10px', 
+                fontWeight: '600',
+                color: '#374151'
+              }}>
+                Choisissez le style :
+              </p>
+
+               <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+                {[
+                  { id: 'raccourcir', label: '📝 Raccourcir', desc: 'Version courte' },
+                  { id: 'clarifier', label: '🔍 Clarifier', desc: 'Plus précis' },
+                  { id: 'pro', label: '👔 Professionnel', desc: 'Ton formel' },
+                  { id: 'prospection', label: '👔 Prospection', desc: 'prospecter' } //
+                ].map(option => (
+                  <button
+                    key={option.id}
+                    onClick={() => selectionnerTon(option.id)}
+                    style={{
+                      padding: '12px 16px',
+                      border: tonSelectionne === option.id ? '2px solid #2563eb' : '2px solid #e2e8f0',
+                      backgroundColor: tonSelectionne === option.id ? '#eff6ff' : 'white',
+                      borderRadius: '6px',
+                      cursor: 'pointer',
+                      textAlign: 'center',
+                      fontSize: '0.9rem',
+                      fontWeight: '500',
+                      color: tonSelectionne === option.id ? '#2563eb' : '#64748b',
+                      transition: 'all 0.2s'
+                    }}
+                  >
+                    <div>{option.label}</div>
+                    <div style={{ fontSize: '0.75rem', marginTop: '4px' }}>
+                      {option.desc}
+                    </div>
+                  </button>
+                ))}
+              </div>
+
+               {/* Bouton Réécrire */}
+              <button
+                onClick={reecrireEmail}
+                disabled={isLoading || !emailOriginal.trim()}
+                style={{
+                  width: '100%',
+                  padding: '15px',
+                  backgroundColor: isLoading || !emailOriginal.trim() ? '#94a3b8' : '#2563eb',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '8px',
+                  fontSize: '1.1rem',
+                  fontWeight: '600',
+                  cursor: isLoading || !emailOriginal.trim() ? 'not-allowed' : 'pointer',
+                  transition: 'background-color 0.2s'
+                }}
+              >
+                {isLoading ? '✨ Réécriture en cours...' : '🚀 Réécrire l\'email'}
+              </button>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tu es un expert en prospection par e-mail avec une maîtrise avancée des techniques de conversion.
+Objectif :Transformer l\’email ci-dessous en un email de prospection professionnel, efficace et convaincant, prêt à être envoyé à un prospect réel.
+Définition du ton PROSPECTION :- Email orienté conversion, pas informatif- Message clair, direct et structuré- Accent mis sur la valeur pour le prospect- Intérêt éveillé dès les premières lignes- Crédibilité et posture professionnelle- Appel à l\’action implicite, naturel et non agressif
+Contraintes STRICTES :- Fournis UNIQUEMENT la version finale de l’email- Aucune explication, aucun commentaire, aucun raisonnement- N’utilise PAS de symboles (*, -, •), emojis ou balises- Ne rends PAS l’email générique ou passe-partout- Adapte le message au contexte implicite du mail- Ne change PAS l\’intention initiale- Ne rajoute aucune promesse irréaliste- Ton professionnel, humain et sûr- Email concis, orienté impact- Ne pose PAS de questions ouvertes vagues- Évite les formulations commerciales agressives- Évite les clichés de prospection
+Structure attendue (sans l\’indiquer explicitement) :
+- Accroche pertinente et contextualisée
+- Proposition de valeur claire et utile
+- Message centré sur le besoin du prospect
+- Conclusion engageante et professionnelle
+Contexte :
+L\’email est envoyé par un professionnel qui contacte un prospect pour une opportunité réelle (service, collaboration, mission ou offre), 
+avec l\’objectif d\’obtenir une réponse ou un échange.
+Email de départ à transformer : ${email} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
