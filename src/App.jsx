@@ -204,13 +204,13 @@ export default function Example() {
             </div>
             
             {/* Main Title */}
-            <h1 style={{ fontFamily: 'Cascadia Mono, sans-serif' }} className="  text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6" >
+            <h1 style={{ fontFamily: 'Cascadia Mono, sans-serif' }} className="  text-5xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6" >
              Freelance : redige des emails clairs 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> et pro en 5 secondes</span>
             </h1>
             
             {/* Subtitle */}
-            <p style={{ fontFamily: 'Cascadia Mono, sans-serif' }}  className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8 max-w-3xl mx-auto">
+            <p style={{  }}  className="text-lg sm:text-xl text-gray-600 leading-relaxed mb-8 max-w-3xl mx-auto">
              Colle ton email brouillon, choisi le ton souhaité et obtient une version professionnelle, adaptée aux freelances ou PME, instantanément. 
               <strong className="text-gray-800"> Aucun compte. Aucune limites.</strong>
             </p>
@@ -246,7 +246,7 @@ export default function Example() {
             {/* CTA Buttons */}
             
             <btn  style = {{borderRadius : 20, marginLeft :  -12}}  onClick={() => document.getElementById('rewrite-section').scrollIntoView({ behavior: 'smooth' })} className = 'bg-blue-600 cursor-pointer hover:bg-blue-700 text-white font-semibold py-2 px-6   rounded-lg transition-colors' > Essayer gratuitement &rarr; </btn> 
-            <a href='#fonc' className='ml-3' > Comment ça marche </a>
+            {/* <a href='#fonc' className='ml-3' > Comment ça marche </a> */}
             {/* <a href="#fonc" className='ml-5' >Comment ça marche</a> */}
           </div>
            {/* Hero section 2e 50% */}
