@@ -446,7 +446,7 @@ Exemple : hey, pour le nouveau projet dont on a parlé, mon tarif c'est 500€. 
             </div>
               <h2 style={{ fontFamily: 'Cascadia Mono, sans-serif' }} className='text-2xl sm:text-xm lg:text-3xl font-bold text-gray-900 leading-tight mb-3'> Génerez des e-mail pro 
                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> en 3 étapes simples </span>  </h2>
-              <div style={{ fontFamily: 'Bpmf Iansui, cursive' }} className=' text-center ' > Avec notre outil, vous n'aurez plus besoin de trop réfléchir au mail parfait pour répondre à vos prospects.
+              <div style={{ fontFamily: 'Bpmf Iansui, cursive' }} className=' text-left inline-block  text-center ' > Avec notre outil, vous n'aurez plus besoin de trop réfléchir au mail parfait pour répondre à vos prospects.
                  <br/> Gagnez du temps et améliorez votre communication professionnelle en un clic. <br />
                ProMail Rewriter transforme instantanément vos brouillons informels en messages clairs, polis et percutants. <br /> 
                Concentrez-vous sur votre business, laissez l'IA s'occuper de vos emails. </div>
