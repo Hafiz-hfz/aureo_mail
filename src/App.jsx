@@ -198,7 +198,7 @@ export default function Example() {
             {/* Badge */}
             <div className="inline-flex  items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-6">
               <span className="mr-2">✨</span>
-              100% Gratuit • Aucune inscription requise
+              100% Gratuit • Aucune inscription requise. Total Gratuit
             </div>
             
             {/* Main Title */}
