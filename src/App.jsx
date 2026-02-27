@@ -216,7 +216,7 @@ export default function Example() {
             </p>
             
             {/* Features list */}
-            <div className="flex flex-wrap  gap-6 mb-10 text-sm text-gray-600">
+            {/* <div className="flex flex-wrap  gap-6 mb-10 text-sm text-gray-600">
               <div className="flex items-center">
                 <svg className="w-5 h-5 text-green-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -241,11 +241,11 @@ export default function Example() {
                 </svg>
                 Résultat  en 5 secondes
               </div>
-            </div>
+            </div> */}
             
             {/* CTA Buttons */}
             
-            <btn> Essayer gratuitement </btn>
+            <btn className = 'bg-blue-600 cursor-pointer hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors' > Essayer gratuitement </btn>
             
           </div>
            {/* Hero section 2e 50% */}
