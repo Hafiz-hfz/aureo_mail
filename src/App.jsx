@@ -83,7 +83,7 @@ export default function Example() {
   }, []);
 
   return (
-    <div>
+    <div className=" bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden">
       {/* Menu */}
       <Disclosure as="nav" className="relative  p-3 bg-gray-800 z-2">
         <div className="mx-auto  max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -245,8 +245,9 @@ export default function Example() {
             
             {/* CTA Buttons */}
             
-            <btn className = 'bg-blue-600 cursor-pointer hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors' > Essayer gratuitement </btn>
-            
+            <btn  style = {{borderRadius : 20}}  onClick={() => document.getElementById('rewrite-section').scrollIntoView({ behavior: 'smooth' })} className = 'bg-blue-600 cursor-pointer hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors' > Essayer gratuitement &rarr; </btn> 
+            <a href='#fonc' className='ml-5' > Comment ça marche </a>
+            {/* <a href="#fonc" className='ml-5' >Comment ça marche</a> */}
           </div>
            {/* Hero section 2e 50% */}
            <div data-aos="fade-up"  className='w-full md:w-1/2 justify-center   max-w-4xl mt-15'>
@@ -437,7 +438,7 @@ Exemple : hey, pour le nouveau projet dont on a parlé, mon tarif c'est 500€. 
           </div>
         </div>
         {/* Fonctionnement */} 
-        <div  id = "fonc" className='text-center   '>
+        <div   id = "fonc" className='text-center  bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden'>
               {/* Badge */}
             <div className="inline-flex  items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-6">
               <span className="mr-2">✨</span>
@@ -481,7 +482,7 @@ Exemple : hey, pour le nouveau projet dont on a parlé, mon tarif c'est 500€. 
 
         </div>
             {/* Differente box pour les avantages */}
-          <div className='text-center mt-20'>
+          <div className='text-center mt-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden'>
 
                  <div className="  inline-flex  items-center px-4 py-2 rounded-full bg-blue-100 text-blue-800 text-sm font-medium mb-6">
               <span className="mr-2">✨</span>
@@ -560,7 +561,7 @@ Exemple : hey, pour le nouveau projet dont on a parlé, mon tarif c'est 500€. 
 
 
                   {/* Footer */}
-                <footer className='mt-20 flex  bg-gray-50  flex-col md:flex-row  gap-6 p-8' >
+                {/* <footer className='mt-20 flex  bg-gray-50  flex-col md:flex-row  gap-6 p-8' >
                           
                     <div className=' w-full text-center '>
                         <h4 style={{ fontFamily: 'Cascadia Mono, sans-serif' }} className='text-2xl text-left sm:text-xm lg:text-3xl font-bold text-gray-900 leading-tight mb-3'> 
@@ -571,7 +572,7 @@ Exemple : hey, pour le nouveau projet dont on a parlé, mon tarif c'est 500€. 
                     </div>
 
                     {/* Produuit */}
-                    <div  className=' w-full text-center  w-1/3  '>
+                    {/* <div  className=' w-full text-center  w-1/3  '>
                         
                         <h4 className="mb-8 mt-2 font-bold ">PRODUIT</h4>
                         <div style={{ fontFamily: 'Bpmf Iansui, cursive', fontSize : 14 }} className=" text-center">
@@ -581,9 +582,9 @@ Exemple : hey, pour le nouveau projet dont on a parlé, mon tarif c'est 500€. 
                             <li></li>
                           </ul>
                         </div>
-                    </div>
+                    </div> */}
 
-                    {/* Contact */}
+                    {/* Contact
                     <div  className=' w-full text-center  w-1/3  '>
                         
                         <h4 className="mb-8 mt-2 font-bold ">CONTACT</h4>
@@ -596,7 +597,7 @@ Exemple : hey, pour le nouveau projet dont on a parlé, mon tarif c'est 500€. 
                         </div>
                     </div>
 
-                </footer>
+                </footer> */}
        
       </div>
 
